@@ -69,9 +69,9 @@ if err != nil {
 Output:
 ```
 failed to do something: original error
-	at github.com/psi59/errors_test.ExampleWrapWithCause(example_test.go:57)
-	at github.com/psi59/errors_test.ExampleWrapWithCause(example_test.go:56)
-	at github.com/psi59/errors_test.ExampleWrapWithCause(example_test.go:55)
+	at github.com/psi59/main.someFunction(something.go:57)
+	at github.com/psi59/main.someFunction(something.go:56)
+	at github.com/psi59/main.someFunction(something.go:55)
 ```
 
 ## Benchmark

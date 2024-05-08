@@ -51,9 +51,15 @@ type Frame struct {
 // String returns a formatted string representation of the Frame.
 // It includes the function name, file path (relative to the working directory), and line number.
 func (f Frame) String() string {
+	file := "unknown"
+	funcName := "unknown"
+	var line int
 	fn := runtime.FuncForPC(f.pc)
-	funcName := fn.Name()
-	file, line := fn.FileLine(f.pc)
+	if fn != nil {
+		funcName = fn.Name()
+		file, line = fn.FileLine(f.pc)
+	}
+
 	return fmt.Sprintf("%s(%s:%d)", funcName, strings.TrimPrefix(file, workingDir+"/"), line)
 }
 
